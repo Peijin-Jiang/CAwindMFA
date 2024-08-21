@@ -20,6 +20,10 @@ excel_path:str="input_data/Wind_data.xls"
 - sheet_name='off_capacity': it includes two future offshore wind energy demand scenarios, offshore wind turbine capacity factor assumptions and average future offshore wind turbine capacity assumptions
 - sheet_name='on_material': it contains the material composition of onshore wind turbines for each tech type of component
 - sheet_name='off_material': it contains the material composition of offshore wind turbines for each tech type of component
-- sheet_name='tech_dev': it contains three technology development scenarios (changes in nacelle market share, replacement rates of nacelles and rotors) for onshore and offshore wind turbines
+- sheet_name='tech_dev': it contains three technology development scenarios (changes in nacelle market share, replacement rates of nacelles and rotors) for onshore and offshore wind turbines, it also contains the future lifetime assumption
 - sheet_name='recy_rate_new': it contains two EoL scenarios for onshore and offshore wind turbine materials detailing the proportion allocated to five treatment methods
 - sheet_name='envir_impact': it contains climate change impacts and energy consumption factors of materials used in wind turbines as well as the potential reduction factors in climate change impacts and energy consumption achievable through closed-loop recycling
+
+# Model Uses
+- Future assumptions (average capacity per wind turbine, capacity factor, lifetime) and future scenarios (energy demand, tech development, EoL treatment) can be modified in the Excel file, and the model can be re-run accordingly.
+- Hardcoded parameters (wind turbine Weibull shape factor, regression results of the relationship between capacity and dimension, and the relationship between dimension and component mass) need to be changed in the Python code.
