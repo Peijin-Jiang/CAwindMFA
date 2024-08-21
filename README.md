@@ -13,7 +13,7 @@ This model presented a comprehensive analysis of capacity flow, material demand,
 - material production (cradle-to-gate) environmental impact: 2 energy demand scenarios * 3 tech devlopment scenarios * 2 EoL scenarios 
 
 # Input data
-- excel_path:str="input_data/Wind_data.xls"
+excel_path:str="input_data/Wind_data.xls"
 - sheet_name='historical_info': it includes information on Canadian historical (from 1993-2019) 6,698 wind turbines' installation year, capacity, dimension size, component tech type, etc
 - sheet_name='his_analysis': it includes Canadian historical 28 years of wind turbine yearly average capacity, average rotor mass, and average nacelle mass
 - sheet_name='on_capacity': it includes two future onshore wind energy demand scenarios, onshore wind turbine capacity factor assumptions and average future onshore wind turbine capacity assumptions
