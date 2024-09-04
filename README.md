@@ -3,6 +3,19 @@ Canadian wind energy dynamic material flow analysis (dMFA)
 
 This model presented a comprehensive analysis of capacity flow, material demand, EoL (end-of-life) management, and the environmental impact of material production for onshore wind turbines in Canada from 1993 to 2050 and offshore wind turbines from 2020 to 2050. The analysis examined four wind turbine components: foundation, nacelle, rotor, and tower. Several material types were covered in this study, including non-metal materials such as concrete and composites, metals (e.g.,steel, cast iron, copper (Cu), aluminum (Al)), and electrics/electronics (EE), as well as REEs in permanent magnets (e.g., neodymium (Nd) and dysprosium (Dy)). 
 
+# How to Run the Project
+- Clone the repository: Open a terminal (or Git Bash for Windows users) and run the following command to clone the project:
+git clone https://github.com/Peijin-Jiang/CAwindMFA.git
+cd CAwindMFA
+
+- Install dependencies: Make sure you have Python installed on your system. Then, run the following command to install all necessary dependencies:
+pip install -r requirements.txt
+
+- Run all experiments: For Windows users, it is recommended to use Git Bash to execute the scripts. Navigate to the project directory using Git Bash and run the following command to execute all experiments:
+bash run_all_experiments.sh
+
+This script will loop through different scenarios and execute the necessary Python scripts to simulate the material flow and environmental impact analysis.
+
 # Model Overview
 ![Alt text](model%20overview.png)
 
@@ -24,6 +37,6 @@ excel_path:str="input_data/Wind_data.xls"
 - sheet_name='recy_rate_new': it contains two EoL scenarios for onshore and offshore wind turbine materials detailing the proportion allocated to five treatment methods
 - sheet_name='envir_impact': it contains climate change impacts and energy consumption factors of materials used in wind turbines as well as the potential reduction factors in climate change impacts and energy consumption achievable through closed-loop recycling
 
-# Model Uses
+# Model Configuration
 - Future assumptions (average capacity per wind turbine, capacity factor, lifetime) and future scenarios (energy demand, tech development, EoL treatment) can be modified in the Excel file, and the model can be re-run accordingly.
 - Hardcoded parameters (wind turbine Weibull shape factor, regression results of the relationship between capacity and dimension, and the relationship between dimension and component mass) need to be changed in the Python code.
