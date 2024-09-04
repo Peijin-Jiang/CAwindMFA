@@ -51,5 +51,8 @@ bash run_all_experiments.sh
 - sheet_name='envir_impact': it contains climate change impacts and energy consumption factors of materials used in wind turbines as well as the potential reduction factors in climate change impacts and energy consumption achievable through closed-loop recycling
 
 # Model Configuration
-- Future assumptions (average capacity per wind turbine, capacity factor, lifetime) and future scenarios (energy demand, tech development, EoL treatment) can be modified in the Excel file, and the model can be re-run accordingly.
-- Hardcoded parameters (wind turbine Weibull shape factor, regression results of the relationship between capacity and dimension, and the relationship between dimension and component mass) need to be changed in the Python code.
+
+- **Future assumptions**: Parameters such as the average capacity per wind turbine, capacity factor, and lifetime, along with **future scenarios** like energy demand, technological development, and End-of-Life (EoL) treatment, can be modified in the provided Excel file. Once updated, the model can be re-run to reflect these changes.
+
+- **Hardcoded parameters**: Certain parameters, including the wind turbine's Weibull shape factor, the regression results for the relationship between capacity and dimensions, and the relationship between dimensions and component mass, are hardcoded in the Python scripts. To modify these, you will need to manually update the relevant Python code.
+
