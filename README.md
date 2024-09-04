@@ -29,8 +29,6 @@ pip install -r requirements.txt
 bash run_all_experiments.sh
 
 
-This script will loop through different scenarios and execute the necessary Python scripts to simulate the material flow and environmental impact analysis.
-
 # Model Overview
 ![Alt text](model%20overview.png)
 
