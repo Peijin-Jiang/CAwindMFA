@@ -4,6 +4,13 @@ Canadian wind energy dynamic material flow analysis (dMFA)
 This model presented a comprehensive analysis of capacity flow, material demand, EoL (end-of-life) management, and the environmental impact of material production for onshore wind turbines in Canada from 1993 to 2050 and offshore wind turbines from 2020 to 2050. The analysis examined four wind turbine components: foundation, nacelle, rotor, and tower. Several material types were covered in this study, including non-metal materials such as concrete and composites, metals (e.g.,steel, cast iron, copper (Cu), aluminum (Al)), and electrics/electronics (EE), as well as REEs in permanent magnets (e.g., neodymium (Nd) and dysprosium (Dy)). 
 
 # How to Run the Project
+
+## Prerequisites
+
+- Python 3.x
+- Git Bash (for Windows users)
+- Required Python packages listed in `requirements.txt`
+
 - Clone the repository: Open a terminal (or Git Bash for Windows users) and run the following command to clone the project:
 
 git clone https://github.com/Peijin-Jiang/CAwindMFA.git
