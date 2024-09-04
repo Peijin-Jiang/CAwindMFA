@@ -7,7 +7,7 @@ This model presented a comprehensive analysis of capacity flow, material demand,
 
 ## Prerequisites
 
-- Python 3.x
+- Python 3.11.9
 - Git Bash (for Windows users)
 - Required Python packages listed in `requirements.txt`
 
