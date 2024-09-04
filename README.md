@@ -19,12 +19,12 @@ git clone https://github.com/Peijin-Jiang/CAwindMFA.git
 cd CAwindMFA
 
 
-### Install dependencies: Make sure you have Python installed on your system. Then, run the following command to install all necessary dependencies:
+### Use the following command to install the required Python packages:
 
 pip install -r requirements.txt
 
 
-### Run all experiments: For Windows users, it is recommended to use Git Bash to execute the scripts. Navigate to the project directory using Git Bash and run the following command to execute all experiments:
+### Once you're in the project directory, run the following command to execute all experiments:
 
 bash run_all_experiments.sh
 
