@@ -11,19 +11,20 @@ This model presented a comprehensive analysis of capacity flow, material demand,
 - Git Bash (for Windows users)
 - Required Python packages listed in `requirements.txt`
 
-- Clone the repository: Open a terminal (or Git Bash for Windows users) and run the following command to clone the project:
+## Setup Instructions
+### Clone the repository: Open a terminal (or Git Bash for Windows users) and run the following command to clone the project:
 
 git clone https://github.com/Peijin-Jiang/CAwindMFA.git
 
 cd CAwindMFA
 
 
-- Install dependencies: Make sure you have Python installed on your system. Then, run the following command to install all necessary dependencies:
+### Install dependencies: Make sure you have Python installed on your system. Then, run the following command to install all necessary dependencies:
 
 pip install -r requirements.txt
 
 
-- Run all experiments: For Windows users, it is recommended to use Git Bash to execute the scripts. Navigate to the project directory using Git Bash and run the following command to execute all experiments:
+### Run all experiments: For Windows users, it is recommended to use Git Bash to execute the scripts. Navigate to the project directory using Git Bash and run the following command to execute all experiments:
 
 bash run_all_experiments.sh
 
@@ -40,7 +41,7 @@ This script will loop through different scenarios and execute the necessary Pyth
 - material production (cradle-to-gate) environmental impact: 2 energy demand scenarios * 3 tech devlopment scenarios * 2 EoL scenarios 
 
 # Input data
-excel_path:str="input_data/Wind_data.xls"
+## excel_path:str="input_data/Wind_data.xls"
 - sheet_name='historical_info': it includes information on Canadian historical (from 1993-2019) 6,698 wind turbines' installation year, capacity, dimension size, component tech type, etc
 - sheet_name='his_analysis': it includes Canadian historical 28 years of wind turbine yearly average capacity, average rotor mass, and average nacelle mass
 - sheet_name='on_capacity': it includes two future onshore wind energy demand scenarios, onshore wind turbine capacity factor assumptions and average future onshore wind turbine capacity assumptions
