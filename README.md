@@ -7,6 +7,7 @@ This model presented a comprehensive analysis of capacity flow, material demand,
 - Clone the repository: Open a terminal (or Git Bash for Windows users) and run the following command to clone the project:
 
 git clone https://github.com/Peijin-Jiang/CAwindMFA.git
+
 cd CAwindMFA
 
 
