@@ -5,14 +5,20 @@ This model presented a comprehensive analysis of capacity flow, material demand,
 
 # How to Run the Project
 - Clone the repository: Open a terminal (or Git Bash for Windows users) and run the following command to clone the project:
+
 git clone https://github.com/Peijin-Jiang/CAwindMFA.git
 cd CAwindMFA
 
+
 - Install dependencies: Make sure you have Python installed on your system. Then, run the following command to install all necessary dependencies:
+
 pip install -r requirements.txt
 
+
 - Run all experiments: For Windows users, it is recommended to use Git Bash to execute the scripts. Navigate to the project directory using Git Bash and run the following command to execute all experiments:
+
 bash run_all_experiments.sh
+
 
 This script will loop through different scenarios and execute the necessary Python scripts to simulate the material flow and environmental impact analysis.
 
