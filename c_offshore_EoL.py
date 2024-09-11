@@ -2,8 +2,8 @@
 This script is used to calculate offshore wind turbine material outnflows
 
 It contains:
-- material outflows form wind turbines reaching the end of their service life
-- material outflows form damaged components
+- material outflows from wind turbines reaching the end of their service life
+- material outflows from damaged components
 - 2 energy demand scenarios: Gcam and GNZ
 - 3 tech development scenarios: CT, AT, NT
 - 2 EoL scenarios: EoL_C and EoL_O
