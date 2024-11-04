@@ -102,7 +102,7 @@ for strategy in results:
     for i, yr in enumerate(np.sort(list(mass_by_year.keys()))):
         mass_by_year_rep[yr] = {}
         for j, m in enumerate(materials):
-            mass_by_year_rep[yr][m] = (mass_by_year[yr][m] + avg_nacl_rotor_rep_mass[i, j]) / 1e6  # Convert to megatons
+            mass_by_year_rep[yr][m] = (mass_by_year[yr][m]) / 1e6  # Convert to megatons
     
     virgin_material = {}
     for m in materials:
@@ -120,17 +120,23 @@ for strategy in results:
         ax.fill_between(year, cum_recy + result_sum[:, j], cum_recy, color=colors[j], edgecolor='none')
         cum_recy = result_sum[:, j] + cum_recy
 
-    ax.legend(loc='upper left')
+    ax.legend(loc='upper left',fontsize=12)
     ax.spines['right'].set_visible(False)
     ax.spines['top'].set_visible(False)
-    ax.set_xlabel('Year')
-    ax.set_ylabel('Mass [Mt]')  # Update y-axis label to megatons (Mt)
-    
+    ax.set_xlabel('Year', fontsize=14)
+    ax.set_ylabel('Mass [Mt]', fontsize=14)  # Update y-axis label to megatons (Mt)
+
+    # Set y-axis ticks to display with two decimal places
+    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.2f}'))
+
+    # Remove border around the legend box
     leg = ax.get_legend()
     leg.get_frame().set_linewidth(0.0)
-    
+
+    # Adjust layout for better fit
     fig.tight_layout()
-    
+
+    # Save the figure with custom filename
     plt.savefig('save_figs/offshore_{}_{}_{}.png'.format(strategy, tp, scen))
     plt.close()
 

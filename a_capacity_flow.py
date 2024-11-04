@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-
+import matplotlib.ticker as mticker
 from scipy.stats import weibull_min
 from _params import get_parser
 
@@ -176,16 +176,16 @@ class CapacityFlow:
         return stock_contrib
 
     def plot(self, tech_scenario: int = 0):
-        """Plot the inflow, stock, outflow for onshore and offshore"""
+        """Plot the inflow, stock, outflow for onshore and offshore with larger y-axis font size and consistent significant figures"""
         color_dict = {'Gcam': '#ca0020', 'GNZ': '#0571b0', 'Historical': '#f4a582'}
-        # set the years range from 1993 to 2050 for both onshore and offshore
         years_future = np.arange(2020, 2051)
         years_history = np.arange(1993, 2020)
 
         def format_ax(ax, title):
             ax.set_title(title)
             ax.set_xlabel('Year')
-            ax.set_ylabel('Capacity (MW)')
+            ax.set_ylabel('Capacity (GW)', fontsize=12)  # Increased font size for y-axis label
+            ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f'{x:.2f}'))  # Consistent decimal formatting
             ax.legend(frameon=False, loc='upper left')
             ax.spines['top'].set_visible(False)
             ax.spines['right'].set_visible(False)
@@ -196,18 +196,30 @@ class CapacityFlow:
             inflow_onshore, inflow_future_onshore, stock_onshore, outflow_onshore, inflow_offshore, outflow_offshore, stock_offshore, \
                 outflow_onshore_contrib, outflow_offshore_contrib, stock_onshore_contrib, stock_offshore_contrib, \
                 years_onshore, years_offshore = self(tech_scenario=tech_scenario, capacity_scenario=capacity_scenario)
-            # plot onshore data
+            
+            # Convert to GW by dividing by 1000, keeping full precision for calculation
+            inflow_onshore = np.array(inflow_onshore) / 1000
+            stock_onshore = np.array(stock_onshore) / 1000
+            outflow_onshore = np.array(outflow_onshore) / 1000
+            inflow_offshore = np.array(inflow_offshore) / 1000
+            stock_offshore = np.array(stock_offshore) / 1000
+            outflow_offshore = np.array(outflow_offshore) / 1000
+
+
+            # Plot onshore data
             axs[0, 0].plot(np.concatenate((years_history, years_future)), inflow_onshore, label=capacity_scenario, color=color_dict[capacity_scenario], linestyle=line_type, linewidth=line_width)
             axs[0, 1].plot(np.concatenate((years_history, years_future)), stock_onshore, label=capacity_scenario, color=color_dict[capacity_scenario], linestyle=line_type, linewidth=line_width)
             axs[0, 2].plot(np.concatenate((years_history, years_future)), outflow_onshore, label=capacity_scenario, color=color_dict[capacity_scenario], linestyle=line_type, linewidth=line_width)
-            # plot offshore data
+            
+            # Plot offshore data
             axs[1, 0].plot(years_offshore, inflow_offshore, label=capacity_scenario, color=color_dict[capacity_scenario], linestyle=line_type, linewidth=line_width)
             format_ax(axs[1, 0], 'Offshore Inflow')
             axs[1, 1].plot(years_offshore, stock_offshore, label=capacity_scenario, color=color_dict[capacity_scenario], linestyle=line_type, linewidth=line_width)
             format_ax(axs[1, 1], 'Offshore Stock')
             axs[1, 2].plot(years_offshore, outflow_offshore, label=capacity_scenario, color=color_dict[capacity_scenario], linestyle=line_type, linewidth=line_width)
             format_ax(axs[1, 2], 'Offshore Outflow')
-        # plot shared historical data
+            
+        # Plot shared historical data
         axs[0, 0].plot(years_history, inflow_onshore[: len(years_history)], label='Historical', color=color_dict['Historical'])
         format_ax(axs[0, 0], 'Onshore Inflow')
         axs[0, 1].plot(years_history, stock_onshore[: len(years_history)], label='Historical', color=color_dict['Historical'])
@@ -222,8 +234,19 @@ class CapacityFlow:
                   years_offshore, inflow_offshore, stock_off, outflow_offshore,
                   tech_scenario: int = 0, capacity_scenario: str = 'Gcam', save_root='results/capacity'):
         """Save the data to a csv file"""
-        save_onshore = pd.DataFrame({'Year': years_onshore, 'Inflow': inflow_onshore, 'Stock': stock_onshore, 'Outflow': outflow_onshore})
-        save_offshore = pd.DataFrame({'Year': years_offshore, 'Inflow': inflow_offshore, 'Stock': stock_off, 'Outflow': outflow_offshore})
+        save_onshore = pd.DataFrame({
+            'Year': years_onshore, 
+            'Inflow (GW)': np.array(inflow_onshore) / 1000, 
+            'Stock (GW)': np.array(stock_onshore) / 1000, 
+            'Outflow (GW)': np.array(outflow_onshore) / 1000
+        })
+        save_offshore = pd.DataFrame({
+            'Year': years_offshore, 
+            'Inflow (GW)': np.array(inflow_offshore) / 1000, 
+            'Stock (GW)': np.array(stock_off) / 1000, 
+            'Outflow (GW)': np.array(outflow_offshore) / 1000
+        })
+
         save_dir = os.path.join(save_root)
         os.makedirs(save_dir, exist_ok=True)
         save_onshore.to_csv(os.path.join(save_dir, f'onshore_{capacity_scenario}_{tech_scenario}.csv'), index=False)

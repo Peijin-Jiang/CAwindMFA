@@ -235,8 +235,14 @@ def get_offshore_env_impact(tp, scen):
         
         ax.set_xticks(np.arange(len(time_agg)) - bar_width/2)
         ax.set_xticklabels(time_agg)
-        ax.set_ylabel('Energy (PJ)')
-        ax.legend(loc='upper left')
+        ax.set_ylabel('Energy (PJ)',fontsize=18)
+        ax.set_xlabel('Year', fontsize=18)
+        ax.legend(loc='upper left',fontsize=12)
+        ax.tick_params(axis='y', labelsize=16) 
+        ax.tick_params(axis='x', labelsize=14)
+        ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.2f}'))
+        leg = ax.get_legend()
+        leg.get_frame().set_linewidth(0.0)
 
         # plot CO2
         ax = co2_ax
@@ -247,8 +253,14 @@ def get_offshore_env_impact(tp, scen):
         
         ax.set_xticks(np.arange(len(time_agg)) - bar_width/2)
         ax.set_xticklabels(time_agg)
-        ax.set_ylabel('Mt CO₂ eq')
-        ax.legend(loc='upper left')
+        ax.set_ylabel('Mt CO₂e',fontsize=18)
+        ax.set_xlabel('Year', fontsize=18)
+        ax.legend(loc='upper left',fontsize=12)
+        ax.tick_params(axis='y', labelsize=16) 
+        ax.tick_params(axis='x', labelsize=14) 
+        ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.2f}'))
+        leg = ax.get_legend()
+        leg.get_frame().set_linewidth(0.0)
         
     # save en_axes to figure
     en_fig.tight_layout()

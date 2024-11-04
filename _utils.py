@@ -298,12 +298,16 @@ def calculate_future_material_mass_offshore_by_year(n_list, c_list, d_list, h_li
         mass_by_year[year] = mass_dict
     return mass_by_year
     
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.ticker as mticker
+
 # plot the mass of each material by year
 def plot_mass_by_year(mass_by_year, name, w_scale=1):
     materials = list(mass_by_year.columns)
     mass_by_year['Year'] = mass_by_year.index
     
-    fig, ax = plt.subplots(figsize=(1.6*FIG_WIDTH, 1.6*FIG_HEIGHT))
+    fig, ax = plt.subplots(figsize=(1.6 * w_scale, 1.6 * w_scale * 0.75))
     
     bottom = np.zeros(len(mass_by_year))
     
@@ -312,7 +316,6 @@ def plot_mass_by_year(mass_by_year, name, w_scale=1):
     materials = [m for _, m in sorted(zip(mean_v, materials))]
     
     for m in materials:
-
         ax.plot([], [], label=m, color=COLORS[m])
         
         # fill in color between mass_by_year[m] and bottom
@@ -323,9 +326,15 @@ def plot_mass_by_year(mass_by_year, name, w_scale=1):
         
         bottom += mass_by_year[m]
     
-    ax.set_xlabel('Year')
-    ax.set_ylabel('Mass [Mt]')
-    ax.legend(loc='upper left')
+    ax.set_xlabel('Year', fontsize=18)
+    ax.set_ylabel('Mass [Mt]', fontsize=18)  # Increase y-axis label font size
+    
+    # Format y-axis tick labels to two decimal places
+    ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f'{x:.2f}'))
+    ax.tick_params(axis='y', labelsize=16) 
+    ax.tick_params(axis='x', labelsize=18) 
+    
+    ax.legend(loc='upper left',fontsize=16)
     
     # remove legend frame
     leg = ax.get_legend()
@@ -334,6 +343,8 @@ def plot_mass_by_year(mass_by_year, name, w_scale=1):
     # save to pdf
     fig.tight_layout()
     plt.savefig(name)
+    plt.close()
+
 
 # read different EoL teartment strategies data
 def get_data_from_recy_new(path="input_data/Wind_data.xls"):
