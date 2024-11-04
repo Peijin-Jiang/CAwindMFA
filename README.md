@@ -38,22 +38,9 @@ bash run_all_experiments.sh
 - material EoL: 2 energy demand scenarios * 3 tech devlopment scenarios * 2 EoL scenarios (EoL_C: current EoL treatment, EoL_O: optimistic EoL treatment)
 - material production (cradle-to-gate) environmental impact: 2 energy demand scenarios * 3 tech devlopment scenarios * 2 EoL scenarios 
 
-# Input data
-## excel_path:str="input_data/Wind_data.xls"
-- sheet_name='on_capacity': it includes two future onshore wind energy demand scenarios, onshore wind turbine capacity factor assumptions and average future onshore wind turbine capacity assumptions
-- sheet_name='off_capacity': it includes two future offshore wind energy demand scenarios, offshore wind turbine capacity factor assumptions and average future offshore wind turbine capacity assumptions
-- sheet_name='on_material': it contains the material composition of onshore wind turbines for each tech type of component
-- sheet_name='off_material': it contains the material composition of offshore wind turbines for each tech type of component
-- sheet_name='tech_dev': it contains three technology development scenarios (changes in nacelle market share, replacement rates of nacelles and rotors) for onshore and offshore wind turbines, it also contains the future lifetime assumption
-- sheet_name='recy_rate_new': it contains two EoL scenarios for onshore and offshore wind turbine materials detailing the proportion allocated to five treatment methods
-- sheet_name='envir_impact': it contains climate change impacts and energy consumption factors of materials used in wind turbines as well as the potential reduction factors in climate change impacts and energy consumption achievable through closed-loop recycling
-- sheet_name='historical_info': it includes information on Canadian historical (from 1993-2019) 6,698 wind turbines' installation year, capacity, dimension size, component tech type, etc
-- sheet_name='his_info2': Canadian historical wind turbine nacelle tech market share analysis
-- sheet_name='his_analysis': it includes Canadian historical 28 years of wind turbine yearly average capacity, average rotor mass, and average nacelle mass
-
 # Model Configuration (parameter settings)
 
-## Modifications in Excel File (Wind_data.xls)
+## Modifications in Excel File (input_data/Wind_data.xls)
 The following data can be modified directly in the Excel sheets to adapt the model for other regions:
 
 1.	Wind Energy Demand Scenarios:
