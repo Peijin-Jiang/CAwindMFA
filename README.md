@@ -51,9 +51,46 @@ bash run_all_experiments.sh
 - sheet_name='his_info2': Canadian historical wind turbine nacelle tech market share analysis
 - sheet_name='his_analysis': it includes Canadian historical 28 years of wind turbine yearly average capacity, average rotor mass, and average nacelle mass
 
-# Model Configuration
+# Model Configuration (parameter settings)
 
-- **Future assumptions**: Parameters such as the average capacity per wind turbine, capacity factor, and lifetime, along with **future scenarios** like energy demand, technological development, and End-of-Life (EoL) treatment, can be modified in the provided Excel file. Once updated, the model can be re-run to reflect these changes.
+## Modifications in Excel File (Wind_data.xls)
+The following data can be modified directly in the Excel sheets to adapt the model for other regions:
 
-- **Hardcoded parameters**: Certain parameters, including the wind turbine's Weibull shape factor, the regression results for the relationship between capacity and dimensions, and the relationship between dimensions and component mass, are hardcoded in the Python scripts. To modify these, you will need to manually update the relevant Python code.
+1.	Wind Energy Demand Scenarios:
+•	Onshore: sheet_name='on_capacity'
+•	Offshore: sheet_name='off_capacity'
+•	Update these sheets for country-specific scenarios, including future onshore and offshore wind energy demand, capacity factors, curtailment rate and average wind turbine capacity.
+2.	Technological Development Scenarios:
+•	Sheet: sheet_name='tech_dev'
+•	Contains technological development scenarios, such as changes in market share, replacement rates, and lifetime assumptions for both onshore and offshore turbines.
+
+3.	Material Composition Data:
+•	Onshore: sheet_name='on_material'
+•	Offshore: sheet_name='off_material'
+•	Adjust these sheets for material compositions of turbine components
+
+4.	End-of-Life (EoL) Scenarios:
+•	Sheet: sheet_name='recy_rate_new'
+•	Define specific EoL treatment proportions for different recycling or disposal methods.
+
+5.	Climate Impact and Energy Consumption Factors:
+•	Sheet: sheet_name='envir_impact'
+•	Modify this sheet to set climate impact and energy consumption factors for materials, as well as potential reductions achievable through closed-loop recycling.
+
+6.	Historical Data:
+•	Sheet: sheet_name='historical_info'
+•	This sheet includes historical construction year, capacity, and the type of nacelle and tower used in each wind turbine. Update this data to reflect the historical specifications of wind turbines in the region of interest.
+
+## Modifications in Python Code
+Certain model parameters and relationships are hardcoded in the Python scripts and require changes in the code if adapting for another region:
+
+1.	Wind Turbine’s Weibull Shape Factor:
+•	Adjustments to the Weibull shape factor need to be made in the a_capacity_flow.py script.
+
+2.	Regression Results for Capacity and Dimensions Relationship:
+•	If a new relationship between turbine capacity and physical dimensions is required, it needs to be updated in b_offshore_material.py and b_onshore_material.py.
+	
+	3.   Component Mass Relationships:
+•	To adapt a new relationship between turbine dimensions and component mass, changes should be made in the _utils.py script.
+
 
