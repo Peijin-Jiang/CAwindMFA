@@ -30,7 +30,7 @@ bash run_all_experiments.sh
 
 
 # Model Overview
-![Alt text](model overview.png)
+![Alt text](model_overview.png)
 
 # Scenarios
 - capacity flow: 2 energy demand scenarios (GCAM: Global Change Analysis Model and GNZ: Global Net Zero from Canada Energy Regulator)
