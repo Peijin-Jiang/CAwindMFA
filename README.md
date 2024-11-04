@@ -90,7 +90,7 @@ Certain model parameters and relationships are hardcoded in the Python scripts a
 2.	Regression Results for Capacity and Dimensions Relationship:
 •	If a new relationship between turbine capacity and physical dimensions is required, it needs to be updated in b_offshore_material.py and b_onshore_material.py.
 	
-	3.   Component Mass Relationships:
+3.	Component Mass Relationships:
 •	To adapt a new relationship between turbine dimensions and component mass, changes should be made in the _utils.py script.
 
 
