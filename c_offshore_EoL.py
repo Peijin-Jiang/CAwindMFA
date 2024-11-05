@@ -76,7 +76,7 @@ df = df / 1e6
 out_flow_off_material = out_flow_off_material / 1e6
 
 # Save the converted data
-df.to_csv('results/material_offshore_mass_by_year_{}_{}.csv'.format(tp, scen))
+# df.to_csv('results/material_offshore_mass_by_year_{}_{}.csv'.format(tp, scen))
 
 # 2 scenarios in total (EoL_C_offshore, EoL_O_offshore)
 for strategy in results:
@@ -102,7 +102,7 @@ for strategy in results:
     for i, yr in enumerate(np.sort(list(mass_by_year.keys()))):
         mass_by_year_rep[yr] = {}
         for j, m in enumerate(materials):
-            mass_by_year_rep[yr][m] = (mass_by_year[yr][m]) / 1e6  # Convert to megatons
+            mass_by_year_rep[yr][m] = (mass_by_year[yr][m] + avg_nacl_rotor_rep_mass[i, j])/ 1e6  # Convert to megatons
     
     virgin_material = {}
     for m in materials:

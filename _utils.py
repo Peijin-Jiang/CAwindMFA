@@ -330,7 +330,7 @@ def plot_mass_by_year(mass_by_year, name, w_scale=1):
     ax.set_ylabel('Mass [Mt]', fontsize=18)  # Increase y-axis label font size
     
     # Format y-axis tick labels to two decimal places
-    ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f'{x:.2f}'))
+    ax.yaxis.set_major_formatter(mticker.StrMethodFormatter('{x:,.2f}'))
     ax.tick_params(axis='y', labelsize=16) 
     ax.tick_params(axis='x', labelsize=18) 
     

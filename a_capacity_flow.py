@@ -184,8 +184,7 @@ class CapacityFlow:
         def format_ax(ax, title):
             ax.set_title(title)
             ax.set_xlabel('Year')
-            ax.set_ylabel('Capacity (GW)', fontsize=12)  # Increased font size for y-axis label
-            ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f'{x:.2f}'))  # Consistent decimal formatting
+            ax.set_ylabel('Capacity (MW)', fontsize=12)  # Increased font size for y-axis label
             ax.legend(frameon=False, loc='upper left')
             ax.spines['top'].set_visible(False)
             ax.spines['right'].set_visible(False)
@@ -198,12 +197,12 @@ class CapacityFlow:
                 years_onshore, years_offshore = self(tech_scenario=tech_scenario, capacity_scenario=capacity_scenario)
             
             # Convert to GW by dividing by 1000, keeping full precision for calculation
-            inflow_onshore = np.array(inflow_onshore) / 1000
-            stock_onshore = np.array(stock_onshore) / 1000
-            outflow_onshore = np.array(outflow_onshore) / 1000
-            inflow_offshore = np.array(inflow_offshore) / 1000
-            stock_offshore = np.array(stock_offshore) / 1000
-            outflow_offshore = np.array(outflow_offshore) / 1000
+            inflow_onshore = np.array(inflow_onshore) 
+            stock_onshore = np.array(stock_onshore) 
+            outflow_onshore = np.array(outflow_onshore) 
+            inflow_offshore = np.array(inflow_offshore)
+            stock_offshore = np.array(stock_offshore) 
+            outflow_offshore = np.array(outflow_offshore)
 
 
             # Plot onshore data
@@ -236,16 +235,16 @@ class CapacityFlow:
         """Save the data to a csv file"""
         save_onshore = pd.DataFrame({
             'Year': years_onshore, 
-            'Inflow (GW)': np.array(inflow_onshore) / 1000, 
-            'Stock (GW)': np.array(stock_onshore) / 1000, 
-            'Outflow (GW)': np.array(outflow_onshore) / 1000
+            'Inflow (MW)': np.array(inflow_onshore), 
+            'Stock (MW)': np.array(stock_onshore), 
+            'Outflow (MW)': np.array(outflow_onshore)
         })
         save_offshore = pd.DataFrame({
             'Year': years_offshore, 
-            'Inflow (GW)': np.array(inflow_offshore) / 1000, 
-            'Stock (GW)': np.array(stock_off) / 1000, 
-            'Outflow (GW)': np.array(outflow_offshore) / 1000
-        })
+            'Inflow (MW)': np.array(inflow_offshore), 
+            'Stock (MW)': np.array(stock_off), 
+            'Outflow (MW)': np.array(outflow_offshore)
+    })
 
         save_dir = os.path.join(save_root)
         os.makedirs(save_dir, exist_ok=True)

@@ -113,12 +113,13 @@ def capacity_offshore(tp=1, scen='GNZ'):
     time_list = [2020 + i for i in range(len(future_n_list))]
     
     future_mass_by_year = calculate_future_material_mass_offshore_by_year(future_n_list, np.array(capacity_per_wind_list), future_d_list, future_h_list, oh_dict, time_list, tp=tp)
-    
+    import copy
+
     mass_by_year = collections.OrderedDict()
     mass_by_year_rep = collections.OrderedDict()
     for i, year in enumerate(np.sort(list(future_mass_by_year.keys()))):
-        mass_by_year[year] = future_mass_by_year[year]
-        mass_by_year_rep[year] = future_mass_by_year[year]
+        mass_by_year[year] = copy.deepcopy(future_mass_by_year[year])
+        mass_by_year_rep[year] = copy.deepcopy(future_mass_by_year[year])
         for j, m in enumerate(material_list):
             mass_by_year_rep[year][m] = mass_by_year_rep[year][m] + avg_nacl_rotor_rep_mass[i, j]
 

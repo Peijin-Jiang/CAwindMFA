@@ -248,7 +248,6 @@ def get_onshore_env_impact(tp, scen):
         ax.legend(loc='upper left',fontsize=12)
         ax.tick_params(axis='y', labelsize=16) 
         ax.tick_params(axis='x', labelsize=12)
-        ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.2f}'))
         leg = ax.get_legend()
         leg.get_frame().set_linewidth(0.0)
 
@@ -266,7 +265,6 @@ def get_onshore_env_impact(tp, scen):
         ax.legend(loc='upper left',fontsize=12)
         ax.tick_params(axis='y', labelsize=16) 
         ax.tick_params(axis='x', labelsize=12) 
-        ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.2f}'))
         leg = ax.get_legend()
         leg.get_frame().set_linewidth(0.0)
         

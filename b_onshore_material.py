@@ -177,17 +177,19 @@ def capacity_onshore(tp=1, scen='Gcam'):
     mass_by_year = {}
     mass_by_year_rep = {}
     
+    import copy
+
     for i, year in enumerate(np.sort(list(hist_mass_by_year.keys()))):
-        mass_by_year[year] = hist_mass_by_year[year]
-        mass_by_year_rep[year] = hist_mass_by_year[year]
+        mass_by_year[year] = copy.deepcopy(hist_mass_by_year[year])
+        mass_by_year_rep[year] = copy.deepcopy(hist_mass_by_year[year])
         for j, m in enumerate(material_list):
             mass_by_year_rep[year][m] = mass_by_year_rep[year][m] + avg_nacl_rotor_rep_mass[i, j]
     for i, year in enumerate(np.sort(list(future_mass_by_year.keys()))):
-        mass_by_year[year] = future_mass_by_year[year]
-        mass_by_year_rep[year] = future_mass_by_year[year]
+        mass_by_year[year] = copy.deepcopy(future_mass_by_year[year])
+        mass_by_year_rep[year] = copy.deepcopy(future_mass_by_year[year])
         for j, m in enumerate(material_list):
             mass_by_year_rep[year][m] = mass_by_year_rep[year][m] + avg_nacl_rotor_rep_mass[i + len(hist_mass_by_year), j]
-    
+
     # save to csv
     df = pd.DataFrame(mass_by_year_rep).T
     # sort using the index
