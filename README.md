@@ -1,5 +1,5 @@
-# 🌐 Read the full article here: https://www.sciencedirect.com/science/article/pii/S0921344924006840
-# 📺 Explore the Model Walkthrough & Setup video here: https://youtu.be/LwH4sxwiwFk
+## 🌐 Read the full article: https://www.sciencedirect.com/science/article/pii/S0921344924006840
+## 📺 Explore the Model Walkthrough & Setup video: https://youtu.be/LwH4sxwiwFk
 # CAwindMFA
 Canadian wind energy dynamic material flow analysis (dMFA)
 
