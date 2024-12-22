@@ -1,7 +1,8 @@
+# 🌐 Read the full article here: https://www.sciencedirect.com/science/article/pii/S0921344924006840
+# 📺 Explore the Model Walkthrough & Setup video here: https://youtu.be/LwH4sxwiwFk
 # CAwindMFA
 Canadian wind energy dynamic material flow analysis (dMFA)
-🌐 Read the full article here: https://www.sciencedirect.com/science/article/pii/S0921344924006840
-📺 Explore the Model Walkthrough & Setup video here: https://youtu.be/LwH4sxwiwFk
+
 
 This model presented a comprehensive analysis of capacity flow, material demand, EoL (end-of-life) management, and the environmental impact of material production for onshore wind turbines in Canada from 1993 to 2050 and offshore wind turbines from 2020 to 2050. The analysis examined four wind turbine components: foundation, nacelle, rotor, and tower. Several material types were covered in this study, including non-metal materials such as concrete and composites, metals (e.g.,steel, cast iron, copper (Cu), aluminum (Al)), and electrics/electronics (EE), as well as REEs in permanent magnets (e.g., neodymium (Nd) and dysprosium (Dy)). 
 
