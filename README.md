@@ -1,5 +1,5 @@
-## 🌐 Read the full article: https://lnkd.in/g4sFJMmt
-## 📺 Explore the Model Walkthrough & Setup video: https://youtu.be/LwH4sxwiwFk
+## 🌐 Read the full article published in RCR here: https://doi.org/10.1016/j.resconrec.2024.108094
+## 📺 Explore the model walkthrough & setup video here: https://youtu.be/LwH4sxwiwFk
 # CAwindMFA
 Canadian wind energy dynamic material flow analysis (dMFA)
 
